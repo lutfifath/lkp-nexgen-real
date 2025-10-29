@@ -11,14 +11,14 @@
     <style>
       /* Reset dan Variabel */
       :root {
-        --navy: #0a192f;
-        --navy-light: #112240;
-        --navy-lighter: #233554;
-        --accent: #64ffda;
-        --accent-light: #8affdf;
-        --text-light: #ccd6f6;
-        --text-lighter: #a8b2d1;
-        --white: #e6f1ff;
+        --navy: #0a2a5a;
+        --navy-light: #1a3a6a;
+        --navy-lighter: #2a4a7a;
+        --accent: #ffd700;
+        --accent-light: #ffe552;
+        --text-light: #e6f0ff;
+        --text-lighter: #b8c7e0;
+        --white: #ffffff;
         --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
 
@@ -38,6 +38,77 @@
         color: var(--text-light);
         line-height: 1.6;
         overflow-x: hidden;
+        position: relative;
+      }
+
+      /* Background dengan bercak-bercak kuning organik */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            ellipse at 10% 20%,
+            rgba(255, 215, 0, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 30% 40%,
+            rgba(255, 215, 0, 0.12) 0%,
+            transparent 45%
+          ),
+          radial-gradient(
+            ellipse at 50% 60%,
+            rgba(255, 215, 0, 0.18) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse at 70% 80%,
+            rgba(255, 215, 0, 0.1) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse at 90% 10%,
+            rgba(255, 215, 0, 0.14) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 20% 90%,
+            rgba(255, 215, 0, 0.08) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse at 80% 30%,
+            rgba(255, 215, 0, 0.16) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            ellipse at 40% 70%,
+            rgba(255, 215, 0, 0.13) 0%,
+            transparent 70%
+          );
+        z-index: -1;
+        opacity: 0.7;
+        animation: float 25s infinite ease-in-out;
+      }
+
+      /* Animasi untuk background bercak-bercak */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        25% {
+          transform: translate(-10px, -15px) rotate(1deg);
+        }
+        50% {
+          transform: translate(-5px, -20px) rotate(-1deg);
+        }
+        75% {
+          transform: translate(-15px, -10px) rotate(2deg);
+        }
       }
 
       /* Typography */
@@ -95,12 +166,30 @@
       /* Layout */
       section {
         padding: 100px 0;
+        position: relative;
+      }
+
+      /* Background khusus untuk section tertentu */
+      .hero,
+      .programs,
+      .contact {
+        background: rgba(10, 42, 90, 0.85);
+        backdrop-filter: blur(3px);
+      }
+
+      .about,
+      .testimonials,
+      footer {
+        background: rgba(26, 58, 106, 0.9);
+        backdrop-filter: blur(3px);
       }
 
       .container {
         width: 90%;
         max-width: 1200px;
         margin: 0 auto;
+        position: relative;
+        z-index: 1;
       }
 
       /* Header & Navigation */
@@ -110,7 +199,7 @@
         left: 0;
         width: 100%;
         z-index: 1000;
-        background-color: rgba(10, 25, 47, 0.9);
+        background-color: rgba(10, 42, 90, 0.95);
         backdrop-filter: blur(10px);
         transition: var(--transition);
       }
@@ -129,7 +218,7 @@
       .logo {
         display: flex;
         align-items: center;
-        gap: 8px; /* Jarak antara logo & teks */
+        gap: 8px;
         font-weight: bold;
         font-size: 20px;
         color: white;
@@ -223,6 +312,10 @@
         background-position: center;
         z-index: -1;
         opacity: 0.8;
+
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        overflow: hidden;
       }
 
       .hero-image:after {
@@ -301,10 +394,6 @@
       }
 
       /* About Section */
-      .about {
-        background-color: var(--navy-light);
-      }
-
       .about-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -351,6 +440,23 @@
 
       .stat {
         text-align: center;
+        position: relative;
+      }
+
+      .stat::before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        background: radial-gradient(
+          ellipse,
+          rgba(255, 215, 0, 0.3) 0%,
+          transparent 70%
+        );
+        z-index: -1;
       }
 
       .stat-number {
@@ -378,6 +484,22 @@
         overflow: hidden;
         transition: var(--transition);
         box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+        position: relative;
+      }
+
+      .program-card::before {
+        content: "";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        background: radial-gradient(
+          ellipse,
+          rgba(255, 215, 0, 0.2) 0%,
+          transparent 70%
+        );
+        z-index: 1;
       }
 
       .program-card:hover {
@@ -433,14 +555,24 @@
       }
 
       /* Testimonials Section */
-      .testimonials {
-        background-color: var(--navy-light);
-      }
-
       .testimonials-slider {
         position: relative;
-        max-width: 800px;
-        margin: 0 auto;
+        overflow: hidden;
+        height: 320px;
+      }
+
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 100%;
+        opacity: 0;
+        transform: translateX(-50%);
+        transition: opacity 0.8s ease-in-out;
+      }
+
+      .slide.active {
+        opacity: 1;
       }
 
       .testimonial-card {
@@ -449,6 +581,35 @@
         padding: 2.5rem;
         box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
         text-align: center;
+        position: relative;
+      }
+
+      .testimonial-card::before {
+        content: "";
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+        width: 30px;
+        height: 30px;
+        background: radial-gradient(
+          ellipse,
+          rgba(255, 215, 0, 0.15) 0%,
+          transparent 70%
+        );
+      }
+
+      .testimonial-card::after {
+        content: "";
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        width: 25px;
+        height: 25px;
+        background: radial-gradient(
+          ellipse,
+          rgba(255, 215, 0, 0.15) 0%,
+          transparent 70%
+        );
       }
 
       .testimonial-text {
@@ -481,25 +642,6 @@
         align-items: center;
         justify-content: center;
       }
-      .testimonials-slider {
-        position: relative;
-        overflow: hidden;
-        height: 320px;
-      }
-
-      .slide {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 100%;
-        opacity: 0;
-        transform: translateX(-50%);
-        transition: opacity 0.8s ease-in-out;
-      }
-
-      .slide.active {
-        opacity: 1;
-      }
 
       .author-image {
         width: 60px;
@@ -507,6 +649,7 @@
         border-radius: 50%;
         overflow: hidden;
         margin-right: 1rem;
+        border: 2px solid var(--accent);
       }
 
       .author-image img {
@@ -541,6 +684,21 @@
       .contact-item {
         display: flex;
         align-items: flex-start;
+        position: relative;
+      }
+
+      .contact-item::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        width: 15px;
+        height: 15px;
+        background: radial-gradient(
+          ellipse,
+          rgba(255, 215, 0, 0.2) 0%,
+          transparent 70%
+        );
       }
 
       .contact-icon {
@@ -554,6 +712,7 @@
         margin-right: 1rem;
         color: var(--accent);
         font-size: 1.2rem;
+        border: 1px solid var(--accent);
       }
 
       .contact-details h4 {
@@ -565,6 +724,21 @@
         padding: 2rem;
         border-radius: 10px;
         box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+        position: relative;
+      }
+
+      .contact-form::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 20px;
+        height: 20px;
+        background: radial-gradient(
+          ellipse,
+          rgba(255, 215, 0, 0.15) 0%,
+          transparent 70%
+        );
       }
 
       .form-group {
@@ -599,8 +773,8 @@
 
       /* Footer */
       footer {
-        background-color: var(--navy-light);
         padding: 4rem 0 2rem;
+        position: relative;
       }
 
       .footer-content {
@@ -633,6 +807,19 @@
 
       .footer-links li {
         margin-bottom: 0.8rem;
+        position: relative;
+      }
+
+      .footer-links li::before {
+        content: "";
+        position: absolute;
+        left: -18px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        background: radial-gradient(ellipse, var(--accent) 0%, transparent 70%);
+        opacity: 0.7;
       }
 
       .footer-links a {
@@ -671,6 +858,21 @@
         color: var(--text-light);
         text-decoration: none;
         transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-links a::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 12px;
+        height: 12px;
+        background: radial-gradient(ellipse, var(--accent) 0%, transparent 70%);
+        opacity: 0;
+        transition: var(--transition);
       }
 
       .social-links a:hover {
@@ -679,12 +881,33 @@
         transform: translateY(-5px);
       }
 
+      .social-links a:hover::before {
+        opacity: 1;
+      }
+
       .footer-bottom {
         text-align: center;
         padding-top: 2rem;
         border-top: 1px solid var(--navy-lighter);
         color: var(--text-lighter);
         font-size: 0.9rem;
+        position: relative;
+      }
+
+      .footer-bottom::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent),
+          transparent
+        );
       }
 
       /* Animations */
@@ -725,6 +948,10 @@
 
         .hero-image {
           width: 40%;
+        }
+
+        body::before {
+          opacity: 0.5;
         }
       }
 
@@ -783,6 +1010,10 @@
         .hero-image:after {
           background: linear-gradient(0deg, var(--navy) 0%, transparent 100%);
         }
+
+        body::before {
+          opacity: 0.4;
+        }
       }
 
       @media (max-width: 576px) {
@@ -806,6 +1037,10 @@
         .testimonial-card {
           padding: 1.5rem;
         }
+
+        body::before {
+          opacity: 0.3;
+        }
       }
     </style>
   </head>
@@ -816,7 +1051,7 @@
         <nav>
           <a href="#" class="logo">
             <img src="assets/logo.png" alt="Logo" />
-            <span>LKP NEXTGEN</span>
+            <span>LKP NEXGEN</span>
           </a>
 
           <ul class="nav-links">
@@ -844,8 +1079,8 @@
             <span class="accent-text">Gemilang</span> Bersama Kami
           </h1>
           <p>
-            LKP Cendekia adalah lembaga kursus dan pelatihan terpercaya yang
-            telah meluluskan ribuan peserta dengan kompetensi unggul siap kerja.
+            LKP NexGen adalah lembaga kursus dan pelatihan terpercaya yang telah
+            meluluskan ribuan peserta dengan kompetensi unggul siap kerja.
           </p>
           <div class="hero-buttons">
             <a href="#programs" class="btn btn-primary">Lihat Program</a>
@@ -863,14 +1098,17 @@
         </div>
         <div class="about-content">
           <div class="about-image">
-            <img src="assets/2.jpg" alt="LKP NextGen" />
+            <img
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="LKP NextGen"
+            />
           </div>
           <div class="about-text">
-            <h3>Lembaga Kursus dan Pelatihan Terpercaya Sejak 2010</h3>
+            <h3>Lembaga Kursus dan Pelatihan Terpercaya dan Profesional</h3>
             <p>
-              LKP Cendekia telah berdiri sejak tahun 2010 dengan komitmen untuk
-              memberikan pendidikan dan pelatihan berkualitas tinggi yang sesuai
-              dengan kebutuhan industri.
+              LKP NexGen adalah lkp profesional dengan komitmen untuk memberikan
+              pendidikan dan pelatihan berkualitas tinggi yang sesuai dengan
+              kebutuhan industri.
             </p>
             <p>
               Kami memiliki fasilitas modern, instruktur berpengalaman, dan
@@ -912,16 +1150,18 @@
               />
             </div>
             <div class="program-content">
-              <h3>Web Development</h3>
+              <h3>Komputer Dasar</h3>
               <p>
-                Pelatihan intensif untuk menjadi web developer profesional
-                dengan penguasaan teknologi terkini.
+                Modul ini akan memperdalam pemahaman Anda tentang Microsoft
+                Word, Excel, dan PowerPoint, serta membekali Anda dengan
+                keterampilan mengetik 10 jari yang sangat penting untuk
+                efisiensi kerja.
               </p>
               <ul class="program-features">
-                <li><i class="fas fa-check"></i> HTML, CSS, JavaScript</li>
-                <li><i class="fas fa-check"></i> React & Node.js</li>
-                <li><i class="fas fa-check"></i> Database & API</li>
-                <li><i class="fas fa-check"></i> Deployment & DevOps</li>
+                <li><i class="fas fa-check"></i> Microsoft Word</li>
+                <li><i class="fas fa-check"></i> Microsoft Excel</li>
+                <li><i class="fas fa-check"></i> Microsoft Power Point</li>
+                <li><i class="fas fa-check"></i> Microsoft Office</li>
               </ul>
               <a href="#" class="btn">Selengkapnya</a>
             </div>
@@ -942,7 +1182,9 @@
                 dan brand awareness.
               </p>
               <ul class="program-features">
-                <li><i class="fas fa-check"></i> SEO & SEM</li>
+                <li>
+                  <i class="fas fa-check"></i> Riset Data Untuk Bisnis Digital
+                </li>
                 <li><i class="fas fa-check"></i> Social Media Marketing</li>
                 <li><i class="fas fa-check"></i> Content Marketing</li>
                 <li><i class="fas fa-check"></i> Analytics & Reporting</li>
@@ -960,16 +1202,17 @@
               />
             </div>
             <div class="program-content">
-              <h3>Data Science</h3>
+              <h3>Desain Grafis</h3>
               <p>
-                Pelajari teknik analisis data untuk mengambil keputusan bisnis
-                yang tepat dan akurat.
+                Meningkatkan pemahaman tentang prinsip komunikasi visual serta
+                kemampuan menerapkan elemen desain untuk menghasilkan karya
+                grafis yang kreatif dan fungsional.
               </p>
               <ul class="program-features">
-                <li><i class="fas fa-check"></i> Python & R Programming</li>
-                <li><i class="fas fa-check"></i> Machine Learning</li>
-                <li><i class="fas fa-check"></i> Data Visualization</li>
-                <li><i class="fas fa-check"></i> Big Data Analytics</li>
+                <li><i class="fas fa-check"></i> Canva</li>
+                <li><i class="fas fa-check"></i> Adobe Photoshop</li>
+                <li><i class="fas fa-check"></i> Adobe Premiere Pro</li>
+                <li><i class="fas fa-check"></i> Adobe After Effect</li>
               </ul>
               <a href="#" class="btn">Selengkapnya</a>
             </div>
@@ -1001,8 +1244,8 @@
               <div class="testimonial-author">
                 <div class="author-image">
                   <img
-                    src="https://randomuser.me/api/portraits/men/32.jpg"
-                    alt="Ahmad Rizki"
+                    src="https://randomuser.me/api/portraits/women/32.jpg"
+                    alt="Welmy Ratu"
                   />
                 </div>
                 <div class="author-info">
@@ -1031,8 +1274,8 @@
               <div class="testimonial-author">
                 <div class="author-image">
                   <img
-                    src="https://randomuser.me/api/portraits/women/45.jpg"
-                    alt="Siti Aisyah"
+                    src="https://randomuser.me/api/portraits/men/45.jpg"
+                    alt="Ady toto"
                   />
                 </div>
                 <div class="author-info">
@@ -1056,8 +1299,8 @@
               <div class="testimonial-author">
                 <div class="author-image">
                   <img
-                    src="https://randomuser.me/api/portraits/men/90.jpg"
-                    alt="Bagas"
+                    src="https://randomuser.me/api/portraits/women/90.jpg"
+                    alt="Nona Pala"
                   />
                 </div>
                 <div class="author-info">
@@ -1086,8 +1329,8 @@
               <div class="contact-details">
                 <h4>Alamat</h4>
                 <p>
-                  Jl. Pendidikan No. 123, Jakarta Selatan<br />DKI Jakarta,
-                  12560
+                  Jl. Karangsambung, Dk Karangsambung RT 01 RW 03,
+                  Karangsambung, Kebumen
                 </p>
               </div>
             </div>
@@ -1097,7 +1340,7 @@
               </div>
               <div class="contact-details">
                 <h4>Telepon</h4>
-                <p>+62 21 1234 5678</p>
+                <p>+62 822-2304-6684</p>
               </div>
             </div>
             <div class="contact-item">
@@ -1106,7 +1349,7 @@
               </div>
               <div class="contact-details">
                 <h4>Email</h4>
-                <p>info@lkpnextgen.ac.id</p>
+                <p>lkpnexgen.id@gmail.com</p>
               </div>
             </div>
             <div class="contact-item">
@@ -1151,7 +1394,7 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-column">
-            <h3>LKP NextGen</h3>
+            <h3>LKP NexGen</h3>
             <p>
               Lembaga Kursus dan Pelatihan terpercaya yang berkomitmen untuk
               mencetak tenaga kerja profesional dan berkompetensi tinggi.
@@ -1168,7 +1411,7 @@
             <ul class="footer-links">
               <li>
                 <a href="#"
-                  ><i class="fas fa-chevron-right"></i> Web Development</a
+                  ><i class="fas fa-chevron-right"></i> Komputer Dasar</a
                 >
               </li>
               <li>
@@ -1178,17 +1421,7 @@
               </li>
               <li>
                 <a href="#"
-                  ><i class="fas fa-chevron-right"></i> Data Science</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="fas fa-chevron-right"></i> Graphic Design</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="fas fa-chevron-right"></i> Office Automation</a
+                  ><i class="fas fa-chevron-right"></i> Desain Grafis</a
                 >
               </li>
             </ul>
@@ -1226,23 +1459,23 @@
             <ul class="footer-links">
               <li>
                 <a href="#"
-                  ><i class="fas fa-map-marker-alt"></i> Jakarta Selatan, DKI
-                  Jakarta</a
+                  ><i class="fas fa-map-marker-alt"></i> Jl. Karangsambung, Dk
+                  Karangsambung RT 01 RW 03, Karangsambung, Kebumen</a
                 >
               </li>
               <li>
-                <a href="#"><i class="fas fa-phone"></i> +62 21 1234 5678</a>
+                <a href="#"><i class="fas fa-phone"></i> +62 822-2304-6684</a>
               </li>
               <li>
                 <a href="#"
-                  ><i class="fas fa-envelope"></i> info@lkpnextgen.ac.id</a
+                  ><i class="fas fa-envelope"></i> lkpnexgen.id@gmail.com</a
                 >
               </li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 LKP NextGen. All Rights Reserved.</p>
+          <p>&copy; 2025 LKP NexGen. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
