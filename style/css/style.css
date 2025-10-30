@@ -1035,7 +1035,7 @@ footer {
   }
   .about-stats{
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 10px; /* biar tidak terlalu mepet */
+    gap: 1px; /* biar tidak terlalu mepet */
   }
 
   .about-stats,
