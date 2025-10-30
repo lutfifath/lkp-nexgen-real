@@ -1035,14 +1035,17 @@ footer {
   }
   .about-stats {
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 1px; /* biar tidak terlalu mepet */
+    gap: 10px !important;
   }
+
   .stat-number {
-    font-size: 50%;
+    font-size: 1.2rem;
   }
+
   .stat-text {
-    font-size: 50%;
+    font-size: 0.78rem;
   }
+
   .about-stats,
   .footer-content {
     grid-template-columns: 1fr;
