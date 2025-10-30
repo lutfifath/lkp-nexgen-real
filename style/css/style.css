@@ -1020,48 +1020,46 @@ footer {
 
 @media (max-width: 576px) {
   .nav-links {
-    width: 95%;
-    top: 60px;
-    height: calc(100vh - 60px);
-    padding-top: 2.5rem;
+    width: 90%; /* sedikit lebih sempit */
+    top: 55px; /* lebih compact */
+    height: calc(100vh - 55px);
+    padding-top: 1.5rem; /* lebih kecil */
     right: -100%;
   }
 
   .navbar-logo img {
-    height: 40px; /* lebih jelas */
+    height: 36px; /* agak lebih kecil */
   }
 
   .nav-links li {
-    margin: 1.5rem 0;
-    font-size: 1.1rem;
+    margin: 1rem 0; /* lebih compact */
+    font-size: 1rem;
   }
 
   .mobile-menu-btn {
-    display: block;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
 
   .hero-buttons {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
   .btn {
     width: 100%;
-    padding: 0.8rem 0;
-    font-size: 1rem;
+    padding: 0.6rem 0; /* lebih kecil */
+    font-size: 0.95rem; /* proporsional */
   }
 
-  /* Grid dua kolom */
   .about-stats {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr) !important; /* dua kolom */
+    gap: 0.5rem; /* lebih compact */
   }
 
   .hero-image {
     width: 100%;
-    opacity: 0.6;
+    opacity: 0.5; /* lebih jelas tapi tidak mengganggu */
   }
 
   .hero-image:after {
@@ -1069,6 +1067,6 @@ footer {
   }
 
   body::before {
-    opacity: 0.4;
+    opacity: 0.3;
   }
 }
