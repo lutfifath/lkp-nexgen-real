@@ -1017,56 +1017,624 @@ footer {
     opacity: 0.4;
   }
 }
+/* ===== MOBILE FIRST ENHANCEMENTS ===== */
 
-@media (max-width: 576px) {
-  .nav-links {
-    width: 90%; /* sedikit lebih sempit */
-    top: 55px; /* lebih compact */
-    height: calc(100vh - 55px);
-    padding-top: 1.5rem; /* lebih kecil */
-    right: -100%;
+/* Optimasi untuk layar sangat kecil (HP kecil) */
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+    padding: 0 15px;
   }
 
-  .navbar-logo img {
-    height: 36px; /* agak lebih kecil */
+  /* Typography mobile */
+  h1 {
+    font-size: 2rem !important;
+    margin-bottom: 1rem;
   }
 
-  .nav-links li {
-    margin: 1rem 0; /* lebih compact */
-    font-size: 1rem;
+  h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 2rem;
   }
 
-  .mobile-menu-btn {
-    width: 40px;
-    height: 40px;
+  h3 {
+    font-size: 1.4rem !important;
+  }
+
+  .section-title {
+    margin-bottom: 3rem;
+  }
+
+  /* Header lebih kompak */
+  #header {
+    padding: 10px 0;
+  }
+
+  nav {
+    padding: 0.8rem 0;
+  }
+
+  .logo img {
+    height: 35px;
+  }
+
+  .logo span {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    margin-left: 5px;
+  }
+
+  /* Hero section untuk HP */
+  .hero {
+    height: 80vh;
+    min-height: 500px;
+    margin-top: 60px;
+    text-align: center;
+  }
+
+  .hero-content {
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    line-height: 1.3;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
   }
 
   .hero-buttons {
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 12px;
+    align-items: center;
   }
 
   .btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
     width: 100%;
-    padding: 0.6rem 0; /* lebih kecil */
-    font-size: 0.95rem; /* proporsional */
+    max-width: 250px;
+    margin: 0;
   }
 
-  .about-stats {
-    grid-template-columns: repeat(2, 1fr) !important; /* dua kolom */
-    gap: 0.5rem; /* lebih compact */
+  .btn-primary {
+    margin-right: 0;
   }
 
   .hero-image {
     width: 100%;
-    opacity: 0.5; /* lebih jelas tapi tidak mengganggu */
+    opacity: 0.3;
+    border-radius: 0;
+    -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent);
+    mask-image: linear-gradient(to bottom, black 30%, transparent);
   }
 
-  .hero-image:after {
-    background: linear-gradient(0deg, var(--navy) 0%, transparent 100%);
+  /* About section mobile */
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 15px;
+    margin-top: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .stat-text {
+    font-size: 0.75rem;
+  }
+
+  /* Programs grid untuk HP */
+  .programs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+
+  .program-card {
+    margin-bottom: 0;
+  }
+
+  .program-content {
+    padding: 1.2rem;
+  }
+
+  .program-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .program-content p {
+    font-size: 0.85rem;
+  }
+
+  .program-features li {
+    font-size: 0.8rem;
+  }
+
+  /* Testimonials mobile */
+  .testimonials-slider {
+    min-height: 450px;
+    padding-bottom: 3rem;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem;
+    margin: 0 5px;
+  }
+
+  .testimonial-text {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .testimonial-text:before,
+  .testimonial-text:after {
+    font-size: 2rem;
+  }
+
+  .testimonial-text:before {
+    top: -15px;
+    left: -5px;
+  }
+
+  .testimonial-text:after {
+    bottom: -30px;
+    right: -5px;
+  }
+
+  .testimonial-author {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .author-image {
+    margin-right: 0;
+    width: 50px;
+    height: 50px;
+  }
+
+  .author-info h4 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .author-info p {
+    font-size: 0.8rem;
+  }
+
+  /* Contact section mobile */
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    padding: 1rem 0;
+  }
+
+  .contact-icon {
+    margin-right: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+
+  .contact-details h4 {
+    font-size: 1.1rem;
+  }
+
+  .contact-details p {
+    font-size: 0.9rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-control {
+    padding: 0.8rem;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  textarea.form-control {
+    min-height: 120px;
+  }
+
+  /* Footer mobile */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .footer-column h3 {
+    font-size: 1.2rem;
+  }
+
+  .footer-column h3:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-links li::before {
+    display: none;
+  }
+
+  .footer-links a {
+    justify-content: center;
+    padding: 5px 0;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  /* Section padding untuk mobile */
+  section {
+    padding: 60px 0;
+  }
+
+  /* Background optimization untuk mobile */
+  body::before {
+    opacity: 0.3;
+    animation-duration: 40s;
+  }
+}
+
+/* Optimasi untuk tablet kecil (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .programs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .testimonials-slider {
+    min-height: 400px;
+  }
+}
+
+/* Optimasi untuk tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .programs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== IMPROVEMENTS UNTUK NAVIGASI MOBILE ===== */
+@media (max-width: 768px) {
+  /* Mobile menu styling improvement */
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 280px;
+    height: calc(100vh - 70px);
+    background-color: var(--navy-light);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2rem;
+    transition: var(--transition);
+    box-shadow: -10px 0 30px -10px rgba(2, 12, 27, 0.7);
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li {
+    margin: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    padding: 15px 0;
+    font-size: 1.1rem;
+    display: block;
+    width: 100%;
+    color: var(--text-light);
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+
+  .nav-links a:after {
+    display: none;
+  }
+
+  /* Mobile menu button improvement */
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    z-index: 1000;
+  }
+
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  body.menu-open::before {
+    opacity: 0.1;
+  }
+}
+
+/* ===== TOUCH-FRIENDLY IMPROVEMENTS ===== */
+@media (hover: none) and (pointer: coarse) {
+  /* Optimasi untuk perangkat touch */
+  .btn,
+  .nav-links a,
+  .program-card,
+  .social-links a,
+  .program-features li,
+  .footer-links a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    padding: 15px 0;
+  }
+
+  /* Hilangkan hover effects di mobile */
+  .program-card:hover {
+    transform: none;
+  }
+
+  .btn:hover:before {
+    width: 0;
+  }
+
+  .about-image:hover img {
+    transform: none;
+  }
+
+  .program-card:hover .program-image img {
+    transform: none;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+/* Mencegah layout shift pada gambar */
+.program-image,
+.about-image,
+.author-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.program-image::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.program-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-image img,
+.author-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Smooth scrolling untuk iOS */
+@supports (-webkit-touch-callout: none) {
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 
   body::before {
-    opacity: 0.3;
+    animation: none !important;
   }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --accent: #ffff00;
+    --text-light: #ffffff;
+    --navy: #000080;
+    --navy-light: #0000a0;
+    --navy-lighter: #0000c0;
+  }
+}
+
+/* ===== FADE ANIMATION ENHANCEMENTS ===== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ===== SLIDER HEIGHT TRANSITION ===== */
+.testimonials-slider {
+  transition: height 0.3s ease;
+}
+
+/* ===== FORM OPTIMIZATIONS ===== */
+@media (max-width: 480px) {
+  .form-control:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+  }
+}
+
+/* ===== FIX UNTUK ISSUE SPESIFIK ===== */
+/* Pastikan container tidak overflow di mobile */
+.container {
+  overflow-x: hidden;
+}
+
+/* Pastikan gambar logo tidak terlalu besar di mobile */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 16px;
+  }
+
+  .logo img {
+    height: 32px;
+  }
+}
+
+/* Pastikan background pattern tidak terlalu kuat di mobile */
+@media (max-width: 768px) {
+  body::before {
+    opacity: 0.4;
+    background-size: cover;
+  }
+}
+
+/* Improvement untuk button visibility */
+.btn {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Pastikan text readable di mobile */
+@media (max-width: 480px) {
+  p,
+  .stat-text,
+  .program-features li,
+  .footer-links a {
+    line-height: 1.5;
+  }
+}
+
+/* Improvement untuk mobile menu icon transition */
+.mobile-menu-btn i {
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu-btn.active i {
+  transform: rotate(90deg);
+}
+
+/* Smooth height transition untuk slider */
+.testimonials-slider {
+  transition: height 0.4s ease;
+}
+
+/* Performance improvements */
+.fade-in-up {
+  will-change: opacity, transform;
+}
+
+/* Touch improvements untuk mobile */
+@media (max-width: 768px) {
+  .testimonials-slider {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Pastikan touch targets cukup besar */
+  .btn, 
+  .nav-links a, 
+  .program-card, 
+  .social-links a {
+    min-height: 44px;
+  }
+}
+
+/* Loading state improvements */
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* Smooth transitions untuk semua interactive elements */
+.nav-links,
+.hero-image,
+.program-card,
+.testimonial-card {
+  transition: all 0.3s ease;
 }
