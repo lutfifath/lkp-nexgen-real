@@ -1020,59 +1020,48 @@ footer {
 
 @media (max-width: 576px) {
   .nav-links {
-    position: fixed;
-    top: 60px; /* sedikit lebih kecil dari versi tablet */
-    right: -100%;
-    width: 90%; /* lebih lebar agar mudah disentuh */
+    width: 95%;
+    top: 60px;
     height: calc(100vh - 60px);
-    background-color: var(--navy-light);
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 2rem;
-    transition: var(--transition);
-    box-shadow: -10px 0 30px -10px rgba(2, 12, 27, 0.7);
+    padding-top: 2.5rem;
+    right: -100%;
   }
 
   .navbar-logo img {
-    height: 32px; /* versi mobile */
-  }
-
-  .nav-links.active {
-    right: 0;
+    height: 40px; /* lebih jelas */
   }
 
   .nav-links li {
-    margin: 1rem 0; /* dikurangi agar muat lebih banyak */
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
   }
 
   .mobile-menu-btn {
     display: block;
+    width: 50px;
+    height: 50px;
   }
 
   .hero-buttons {
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1rem;
   }
 
   .btn {
     width: 100%;
-    text-align: center;
-    font-size: 0.9rem; /* sedikit lebih kecil */
+    padding: 0.8rem 0;
+    font-size: 1rem;
   }
 
-  .btn-primary {
-    margin-right: 0;
-  }
-
+  /* Grid dua kolom */
   .about-stats {
-    grid-template-columns: repeat(2, 1fr) !important; /* 2 kolom agar tidak terlalu sempit */
-    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem;
   }
 
   .hero-image {
     width: 100%;
-    opacity: 0.3;
+    opacity: 0.6;
   }
 
   .hero-image:after {
@@ -1080,6 +1069,6 @@ footer {
   }
 
   body::before {
-    opacity: 0.3;
+    opacity: 0.4;
   }
 }
