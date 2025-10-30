@@ -1003,7 +1003,7 @@ footer {
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 1px; /* biar tidak terlalu mepet */
   }
-  
+
   .hero-image {
     width: 100%;
     opacity: 0.4;
@@ -1033,11 +1033,16 @@ footer {
   section {
     padding: 70px 0;
   }
-  .about-stats{
+  .about-stats {
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 1px; /* biar tidak terlalu mepet */
   }
-
+  .stat-number {
+    font-size: 50%;
+  }
+  .stat-text {
+    font-size: 50%;
+  }
   .about-stats,
   .footer-content {
     grid-template-columns: 1fr;
