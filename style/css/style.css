@@ -17,7 +17,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Poppins", "Inter", sans-serif;
 }
 
 html {
@@ -123,6 +123,14 @@ h2 {
   position: relative;
   display: inline-block;
   margin-bottom: 2.5rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 h2:after {
@@ -464,8 +472,8 @@ nav {
 
 /* Programs Section */
 .programs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
 }
 
@@ -476,6 +484,7 @@ nav {
   transition: var(--transition);
   box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
   position: relative;
+  width: 100%;
 }
 
 .program-card::before {
